@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keep Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="left">
+      <button class="icon-btn" aria-label="Menu">☰</button>
+      <h1>Keep</h1>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search notes" />
+    </div>
+  </header>
+
+  <main>
+    <section class="composer card" aria-label="Create a note">
+      <input id="titleInput" type="text" placeholder="Title" />
+      <textarea id="contentInput" rows="3" placeholder="Take a note..."></textarea>
+      <div class="composer-actions">
+        <div class="color-palette" id="palette"></div>
+        <button id="addNoteBtn" class="primary">Add note</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pinned</h2>
+      <div id="pinnedGrid" class="notes-grid"></div>
+    </section>
+
+    <section>
+      <h2>Others</h2>
+      <div id="notesGrid" class="notes-grid"></div>
+    </section>
+  </main>
+
+  <template id="noteTemplate">
+    <article class="note card">
+      <button class="pin-btn icon-btn" title="Pin">📌</button>
+      <h3 class="note-title"></h3>
+      <p class="note-content"></p>
+      <div class="note-actions">
+        <button data-action="duplicate" class="icon-btn" title="Duplicate">⎘</button>
+        <button data-action="archive" class="icon-btn" title="Archive">🗄️</button>
+        <button data-action="delete" class="icon-btn danger" title="Delete">🗑️</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
